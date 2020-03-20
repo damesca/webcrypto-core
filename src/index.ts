@@ -14,3 +14,4 @@ export * from "./key";
 export * from "./utils";
 export { BufferSourceConverter } from "pvtsutils";
 export * from "./types";
+export * from "./dh";
