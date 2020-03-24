@@ -1,4 +1,5 @@
 import { ProviderCrypto } from "../provider";
+import { ProviderKeyUsages } from "../types";
 
 export abstract class DhProvider extends ProviderCrypto {
 
