@@ -1,10 +1,10 @@
 import { ProviderCrypto } from "../provider";
 
-interface OtParams extends Algorithm {
+export interface OtParams extends Algorithm {
     isSender?: boolean,
-    privateKey?: CryptoKey,
-    publicKey?: CryptoKey,
-    choice?: number[];
+    privateKey?: CryptoKey | CryptoKey[],
+    publicKey?: CryptoKey | CryptoKey[],
+    choice?: number | number[];
 }
 
 export abstract class OtProvider extends ProviderCrypto {
