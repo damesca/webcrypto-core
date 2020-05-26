@@ -15,6 +15,54 @@ export class SubtleCrypto {
 
     protected providers = new ProviderStorage();
 
+    /* Oblivious Transfer Methods */
+
+    public async setup(algorithm: AlgorithmIdentifier): Promise<ArrayBuffer[][]> {
+        this.checkRequiredArguments(arguments, 1, "setup");
+
+        const preparedAlgorithm = this.prepareAlgorithm(algorithm);
+
+        const provider = this.getProvider(preparedAlgorithm.name);
+        const result = await provider.setup(preparedAlgorithm);
+
+        return result;
+    }
+
+    public async obliviousPublicKeyDerivation(algorithm: AlgorithmIdentifier, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][]): Promise<ArrayBuffer[]> {
+        this.checkRequiredArguments(arguments, 3, "obliviousPublicKeyDerivation");
+
+        const preparedAlgorithm = this.prepareAlgorithm(algorithm);
+
+        const provider = this.getProvider(preparedAlgorithm.name);
+        const result = await provider.obliviousPublicKeyDerivation(preparedAlgorithm, publicDataSender, fixedDataReceiver);
+
+        return result;
+    }
+
+    public async obliviousEncrypt(algorithm: AlgorithmIdentifier, obliviousPublicKey: ArrayBuffer[], fixedDataSender: ArrayBuffer[][], clearMessages: ArrayBuffer[]): Promise<ArrayBuffer[][]> {
+        this.checkRequiredArguments(arguments, 4, "obliviousEncrypt");
+
+        const preparedAlgorithm = this.prepareAlgorithm(algorithm);
+
+        const provider = this.getProvider(preparedAlgorithm.name);
+        const result = await provider.obliviousEncrypt(preparedAlgorithm, obliviousPublicKey, fixedDataSender, clearMessages);
+
+        return result;
+    }
+
+    public async obliviousDecrypt(algorithm: AlgorithmIdentifier, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][], encryptedMessages: ArrayBuffer[][]): Promise<ArrayBuffer[]> {
+        this.checkRequiredArguments(arguments, 4, "obliviousDecrypt");
+
+        const preparedAlgorithm = this.prepareAlgorithm(algorithm);
+
+        const provider = this.getProvider(preparedAlgorithm.name);
+        const result = await provider.obliviousDecrypt(preparedAlgorithm, publicDataSender, fixedDataReceiver, encryptedMessages);
+        
+        return result;
+    }
+
+    /******************************/
+
     public async digest(algorithm: AlgorithmIdentifier, data: BufferSource): Promise<ArrayBuffer> {
         this.checkRequiredArguments(arguments, 2, "digest");
 

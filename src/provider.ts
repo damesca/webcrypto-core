@@ -20,6 +20,58 @@ export abstract class ProviderCrypto {
    */
   public abstract readonly usages: ProviderKeyUsages;
 
+  //#region Setup
+  public async setup(algorithm: Algorithm): Promise<ArrayBuffer[][]>{
+    this.checkAlgorithmName.apply(this, arguments);
+    return this.onSetup.apply(this, arguments);
+  }
+  public checkSetup(algorithm: Algorithm) {
+    this.checkAlgorithmName(algorithm);
+  }
+  public onSetup(algorithm: Algorithm): Promise<ArrayBuffer[][]> {
+    throw new UnsupportedOperationError("setup");
+  }
+  //#endregion
+
+  //#region ObliviousPublicKeyDerivation
+  public async obliviousPublicKeyDerivation(algorithm: Algorithm, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][]): Promise<ArrayBuffer[]> {
+    this.checkAlgorithmName.apply(this, arguments);
+    return this.onObliviousPublicKeyDerivation.apply(this, arguments);
+  }
+  public checkObliviousPublicKeyDerivation(algorithm: Algorithm, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][]) {
+    this.checkAlgorithmName(algorithm);
+  }
+  public onObliviousPublicKeyDerivation(algorithm: Algorithm, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][]): Promise<ArrayBuffer[]> {
+    throw new UnsupportedOperationError("obliviousPublicKeyDerivation");
+  }
+  //#endregion
+
+  //#region 
+  public async obliviousEncrypt(algorithm: Algorithm, obliviousPublicKey: ArrayBuffer[], fixedDataSender: ArrayBuffer[][], clearMessages: ArrayBuffer[]): Promise<ArrayBuffer[][]> {
+    this.checkAlgorithmName.apply(this, arguments);
+    return this.onObliviousEncrypt.apply(this, arguments);
+  }
+  public checkObliviousEncrypt(algorithm: Algorithm, obliviousPublicKey: ArrayBuffer[], fixedDataSender: ArrayBuffer[][], clearMessages: ArrayBuffer[]) {
+    this.checkAlgorithmName(algorithm);
+  }
+  public onObliviousEncrypt(algorithm: Algorithm, obliviousPublicKey: ArrayBuffer[], fixedDataSender: ArrayBuffer[][], clearMessages: ArrayBuffer[]): Promise<ArrayBuffer[][]> {
+    throw new UnsupportedOperationError("obliviousEncrypt");
+  }
+  //#endregion
+
+  //#region 
+  public async obliviousDecrypt(algorithm: Algorithm, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][], encryptedMessages: ArrayBuffer[][]): Promise<ArrayBuffer[]> {
+    this.checkAlgorithmName.apply(this, arguments);
+    return this.onObliviousDecrypt.apply(this, arguments);
+  }
+  public checkObliviousDecrypt(algorithm: Algorithm, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][], encryptedMessages: ArrayBuffer[][]) {
+    this.checkAlgorithmName(algorithm);
+  }
+  public onObliviousDecrypt(algorithm: Algorithm, publicDataSender: ArrayBuffer[], fixedDataReceiver: ArrayBuffer[][], encryptedMessages: ArrayBuffer[][]): Promise<ArrayBuffer[]> {
+    throw new UnsupportedOperationError("obliviousDecrypt");
+  }
+  //#endregion
+
   //#region Digest
   public async digest(algorithm: Algorithm, data: ArrayBuffer): Promise<ArrayBuffer> {
     this.checkDigest.apply(this, arguments);
