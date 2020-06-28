@@ -4,6 +4,8 @@ export interface OtParams extends Algorithm {
     isSender?: boolean,
     privateKey?: CryptoKey | CryptoKey[],
     publicKey?: CryptoKey | CryptoKey[],
+    rawPrivateKey?: ArrayBuffer | ArrayBuffer[],
+    rawPublicKey?: ArrayBuffer | ArrayBuffer[],
     choice?: number | number[];
 }
 
