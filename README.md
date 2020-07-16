@@ -10,7 +10,7 @@ Here, a briefly introduction for designed primitives is introduced.
 - **Oblivious Decrypt:** The Receiver gets the encrypted messages from the Sender, but he is only able to decrypt messages which are part of the choice (just 1 message for the 1-out-of-2 version). Decryption is made after a key derivation, as the Sender did.
 
 ## Fixed Data Structure
-<img src="https://github.com/damesca/webcrypto-core/blob/master/FixedData structure.png" width="600" height="500">
+<img src="https://github.com/damesca/webcrypto-core/blob/master/FixedData structure.png" width="1000" height="300">
 
 ## Refs
 [1] Even S., Goldreich O., Lempel A. (1983) A Randomized Protocol for Signing Contracts. In: Chaum D., Rivest R.L., Sherman A.T. (eds) Advances in Cryptology. Springer, Boston, MA
