@@ -1,3 +1,7 @@
+# webcrypto-core for Oblivious Transfer
+This is a fork from the original module of [webcrypto-core](https://github.com/PeculiarVentures/webcrypto-core), which adds the functionality to implement Oblivious Transfer. A new directory has been added (/src/ot), which includes 3 files for the functionality. The file base.ts integrate the common features for OT and the file ot-rsa.ts builds a base for the 1-out-of-2 protocol from Even, Goldreich and Lempel []. This layer is for validation, so the main functionality has been developed into another forked module called [webcrypto](https://github.com/damesca/webcrypto).
+
+# Original webcrypto-core module
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/PeculiarVentures/webcrypto-core/master/LICENSE)
 [![Build Status](https://travis-ci.org/PeculiarVentures/webcrypto-core.svg?branch=master)](https://travis-ci.org/PeculiarVentures/webcrypto-core)
 [![Coverage Status](https://coveralls.io/repos/github/PeculiarVentures/webcrypto-core/badge.svg?branch=master)](https://coveralls.io/github/PeculiarVentures/webcrypto-core?branch=master)
