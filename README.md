@@ -1,5 +1,8 @@
 # webcrypto-core for Oblivious Transfer
-This is a fork from the original module of [webcrypto-core](https://github.com/PeculiarVentures/webcrypto-core), which adds the functionality to implement Oblivious Transfer. A new directory has been added (/src/ot), which includes 3 files for the functionality. The file base.ts integrate the common features for OT and the file ot-rsa.ts builds a base for the 1-out-of-2 protocol from Even, Goldreich and Lempel []. This layer is for validation, so the main functionality has been developed into another forked module called [webcrypto](https://github.com/damesca/webcrypto).
+This is a fork from the original module of [webcrypto-core](https://github.com/PeculiarVentures/webcrypto-core), which adds the functionality to implement **Oblivious Transfer**. A new directory has been added (/src/ot), which includes 3 files for the functionality. The file *base.ts* integrates the common features for OT and the file *ot-rsa.ts* builds a base for the 1-out-of-2 protocol from [1]. This layer is for validation, so the main functionality has been developed into another forked module called [webcrypto](https://github.com/damesca/webcrypto).
+
+## Refs
+[1] Even S., Goldreich O., Lempel A. (1983) A Randomized Protocol for Signing Contracts. In: Chaum D., Rivest R.L., Sherman A.T. (eds) Advances in Cryptology. Springer, Boston, MA
 
 # Original webcrypto-core module
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/PeculiarVentures/webcrypto-core/master/LICENSE)
